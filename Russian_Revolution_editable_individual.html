@@ -1,0 +1,1046 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script type="text/javascript" src="/___vscode_livepreview_injected_script"></script>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <title>The Russian Revolution: Lenin and Stalin</title>
+    <link rel="icon" href="img/images.jpg">
+    <style>
+        :root {
+            --bg: #eee5d0;
+            --surface: #f8f1e1;
+            --text: #1a1613;
+            --muted: #6e6558;
+            --line: #d2c5a8;
+            --lenin: #c1121f;
+            --stalin: #1f3c88;
+            --gold: #e0a82e;
+            --ink: #15120f;
+            box-sizing: border-box;
+            padding-top: env(safe-area-inset-top, 0px);
+            padding-bottom: env(safe-area-inset-bottom, 0px)
+        }
+
+        @media(prefers-color-scheme:dark) {
+            :root:not([data-theme="light"]) {
+                --bg: #161310;
+                --surface: #211d18;
+                --text: #efe6d2;
+                --muted: #a69b88;
+                --line: #383027;
+                --lenin: #e23a45;
+                --stalin: #6f90e8;
+                color-scheme: dark
+            }
+        }
+
+        :root[data-theme="dark"] {
+            --bg: #161310;
+            --surface: #211d18;
+            --text: #efe6d2;
+            --muted: #a69b88;
+            --line: #383027;
+            --lenin: #e23a45;
+            --stalin: #6f90e8;
+            color-scheme: dark
+        }
+
+        * {
+            box-sizing: border-box
+        }
+
+        html,
+        body {
+            scroll-behavior: smooth;
+            scroll-padding-top: 75px;
+        }
+
+        body {
+            margin: 0;
+            background: var(--bg);
+            color: var(--text);
+            font: 17px/1.65 Georgia, "Times New Roman", serif;
+            overflow-x: clip
+        }
+
+        h1,
+        h2,
+        h3,
+        nav,
+        .tag,
+        .tabs button,
+        .chip,
+        .btn,
+        .sans {
+            font-family: Impact, "Arial Black", "Haettenschweiler", system-ui, sans-serif;
+            font-weight: 400
+        }
+
+        [data-a] {
+            opacity: 0;
+            transition: opacity .8s, transform 1s cubic-bezier(.2, .8, .2, 1);
+            transition-delay: var(--d, 0s)
+        }
+
+        [data-a=up] {
+            transform: perspective(900px) translateY(60px) rotateX(-20deg)
+        }
+
+        [data-a=left] {
+            transform: perspective(900px) translateX(-90px) rotateY(20deg)
+        }
+
+        [data-a=right] {
+            transform: perspective(900px) translateX(90px) rotateY(-20deg)
+        }
+
+        [data-a=zoom] {
+            transform: perspective(900px) scale(.8) translateZ(-120px)
+        }
+
+        [data-a].in {
+            opacity: 1;
+            transform: none
+        }
+
+        [data-a].done {
+            transition: transform .25s, box-shadow .3s;
+            transition-delay: 0s
+        }
+
+        nav {
+            position: sticky;
+            top: env(safe-area-inset-top, 0px);
+            z-index: 1000;
+            background: var(--ink);
+            border-bottom: 3px solid var(--lenin)
+        }
+
+        nav div {
+            max-width: 960px;
+            margin: auto;
+            padding: 14px 20px;
+            display: flex;
+            gap: 24px;
+            overflow-x: auto;
+            font-size: 14px;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        nav a {
+            color: #a69b88;
+            text-decoration: none;
+            white-space: nowrap;
+            transition: color .2s
+        }
+
+        nav a:hover,
+        nav a.on {
+            color: var(--gold)
+        }
+
+        #bar {
+            height: 3px;
+            width: 0;
+            background: var(--gold);
+            margin-top: -3px;
+            position: relative;
+            top: 3px
+        }
+
+        .hero {
+            position: relative;
+            color: #efe6d2;
+            background: var(--ink);
+            padding: 70px 20px 90px;
+            overflow: hidden;
+            isolation: isolate
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: var(--lenin);
+            clip-path: polygon(52% 0, 100% 0, 100% 100%, 22% 100%);
+            opacity: .92
+        }
+
+        .hero::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            z-index: -1;
+            background: repeating-linear-gradient(115deg, transparent 0 26px, rgba(255, 255, 255, .05) 26px 28px)
+        }
+
+        .hero>div {
+            max-width: 960px;
+            margin: auto;
+            display: flex;
+            gap: 30px;
+            align-items: center;
+            flex-wrap: wrap;
+            justify-content: space-between
+        }
+
+        .txt {
+            flex: 1 1 420px
+        }
+
+        .tag {
+            font-size: 13px;
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            color: var(--c, var(--gold))
+        }
+
+        h1 {
+            font-size: clamp(36px, 7vw, 66px);
+            line-height: 1;
+            margin: 14px 0 18px;
+            text-transform: uppercase
+        }
+
+        h1 span {
+            color: var(--gold)
+        }
+
+        .names {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin: 14px 0 0
+        }
+
+        .chip {
+            font-size: 13px;
+            letter-spacing: .06em;
+            padding: 7px 12px;
+            background: rgba(255, 255, 255, .1);
+            border: 1px solid rgba(255, 255, 255, .35);
+            border-left: 4px solid var(--gold);
+            animation: pop .7s both cubic-bezier(.2, .8, .2, 1)
+        }
+
+        @keyframes pop {
+            from {
+                opacity: 0;
+                transform: perspective(600px) rotateX(-70deg) translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .btns {
+            display: flex;
+            gap: 12px;
+            margin-top: 26px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            font-size: 15px;
+            letter-spacing: .08em;
+            text-transform: uppercase;
+            padding: 13px 22px;
+            text-decoration: none;
+            color: #fff;
+            transition: transform .2s, box-shadow .2s
+        }
+
+        .btn:hover {
+            transform: translate(-3px, -3px);
+            box-shadow: 5px 5px 0 var(--gold)
+        }
+
+        .btn.l {
+            background: var(--lenin)
+        }
+
+        .btn.s {
+            background: var(--stalin)
+        }
+
+        .stage {
+            width: 240px;
+            height: 240px;
+            perspective: 1000px;
+            margin: 20px auto;
+            animation: zin 1.4s both
+        }
+
+        @keyframes zin {
+            from {
+                opacity: 0;
+                transform: scale(.2) rotateY(180deg)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .star {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            transform-style: preserve-3d;
+            animation: spin 14s linear infinite
+        }
+
+        .star i {
+            position: absolute;
+            inset: 0;
+            clip-path: polygon(50% 0, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%)
+        }
+
+        @keyframes spin {
+            from {
+                transform: rotateX(-14deg) rotateY(0)
+            }
+
+            to {
+                transform: rotateX(-14deg) rotateY(360deg)
+            }
+        }
+
+        main {
+            max-width: 960px;
+            margin: auto;
+            padding: 0 20px 80px
+        }
+
+        section {
+            margin-top: 80px;
+            position: relative
+        }
+
+        h2.plain {
+            font-size: 36px;
+            text-transform: uppercase;
+            margin: 0 0 10px;
+            border-left: 10px solid var(--lenin);
+            padding-left: 14px
+        }
+
+        .steps {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            margin: 20px 0;
+            counter-reset: s
+        }
+
+        .step {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-top: 6px solid var(--gold);
+            padding: 16px;
+            font-size: 15.5px;
+            counter-increment: s
+        }
+
+        .step::before {
+            content: counter(s);
+            display: block;
+            font: 400 34px Impact, sans-serif;
+            color: var(--lenin)
+        }
+
+        .qs {
+            display: grid;
+            gap: 14px;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr))
+        }
+
+        .qs div {
+            padding: 18px;
+            color: #fff;
+            font: 400 20px/1.3 Impact, sans-serif;
+            letter-spacing: .02em;
+            background: var(--c)
+        }
+
+        .qs small {
+            display: block;
+            font: 14px Georgia, serif;
+            margin-top: 6px;
+            opacity: .9;
+            letter-spacing: 0
+        }
+
+        .band {
+            position: relative;
+            overflow: hidden;
+            background: var(--c);
+            color: #fff;
+            padding: 30px 28px 64px;
+            clip-path: polygon(0 0, 100% 0, 100% 80%, 0 100%);
+            margin-bottom: 6px
+        }
+
+        .band h2 {
+            font-size: clamp(28px, 5vw, 44px);
+            margin: 6px 0;
+            text-transform: uppercase;
+            line-height: 1.05
+        }
+
+        .band .tag {
+            color: var(--gold)
+        }
+
+        .band b {
+            position: absolute;
+            right: 14px;
+            top: -26px;
+            font: 400 190px/1 Impact, "Arial Black", sans-serif;
+            color: transparent;
+            -webkit-text-stroke: 2px rgba(255, 255, 255, .3)
+        }
+
+        [data-p=lenin] {
+            --c: var(--lenin)
+        }
+
+        [data-p=stalin] {
+            --c: var(--stalin)
+        }
+
+        h3 {
+            font-size: 22px;
+            margin: 46px 0 4px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-transform: uppercase
+        }
+
+        h3 i {
+            font-style: normal;
+            font-size: 15px;
+            width: 34px;
+            height: 34px;
+            background: var(--c);
+            color: #fff;
+            display: grid;
+            place-items: center;
+            transform: rotate(45deg)
+        }
+
+        h3 i::first-line {
+            transform: rotate(-45deg)
+        }
+
+        .ph {
+            display: grid;
+            place-items: center;
+            text-align: center;
+            min-height: 170px;
+            margin: 12px 0;
+            padding: 14px;
+            border: 2px dashed var(--c, var(--muted));
+            color: var(--c, var(--muted));
+            font: 13px/1.4 system-ui, sans-serif;
+            background: repeating-linear-gradient(45deg, transparent 0 12px, color-mix(in srgb, var(--c, #888) 7%, transparent) 12px 24px)
+        }
+
+        .ph b {
+            display: block;
+            letter-spacing: .1em;
+            text-transform: uppercase;
+            margin-bottom: 4px
+        }
+
+        figure {
+            margin: 12px 0
+        }
+
+        figure img {
+
+            width: 100%;
+            height: 401px;
+            display: block;
+            padding: 1px;
+            border-radius: 15px;
+            border: 1px solid var(--line)
+        }
+
+        .src {
+            background: var(--surface);
+            border: 1px solid var(--line);
+            border-left: 8px solid var(--c);
+            padding: 22px;
+            margin: 24px 0;
+            box-shadow: 6px 6px 0 color-mix(in srgb, var(--c) 25%, transparent)
+        }
+
+        .src:hover {
+            box-shadow: 12px 14px 0 color-mix(in srgb, var(--c) 35%, transparent)
+        }
+
+        .cite {
+            font: 700 13px/1.4 system-ui, sans-serif;
+            color: var(--c);
+            margin: 0 0 8px;
+            text-transform: uppercase;
+            letter-spacing: .04em
+        }
+
+        .src p {
+            margin: 0 0 14px
+        }
+
+        .ghost {
+            color: var(--muted);
+            font-style: italic
+        }
+
+        .tabs {
+            display: flex;
+            gap: 6px;
+            flex-wrap: wrap
+        }
+
+        .tabs button {
+            font-size: 13px;
+            letter-spacing: .04em;
+            padding: 8px 12px;
+            border: 2px solid var(--c);
+            background: transparent;
+            color: var(--c);
+            cursor: pointer;
+            transition: all .2s
+        }
+
+        .tabs button.on,
+        .tabs button:hover {
+            background: var(--c);
+            color: #fff;
+            transform: translateY(-2px)
+        }
+
+        .pan {
+            margin-top: 12px;
+            padding: 14px 16px;
+            background: color-mix(in srgb, var(--c) 9%, var(--surface));
+            border-left: 3px solid var(--c);
+            font-size: 15.5px;
+            animation: fade .4s
+        }
+
+        .pan em {
+            display: block;
+            font: 700 12px system-ui, sans-serif;
+            font-style: normal;
+            color: var(--c);
+            margin-bottom: 4px;
+            text-transform: uppercase
+        }
+
+        @keyframes fade {
+            from {
+                opacity: 0;
+                transform: perspective(500px) rotateX(-25deg)
+            }
+
+            to {
+                opacity: 1;
+                transform: none
+            }
+        }
+
+        .verdict {
+            margin: 36px 0 0;
+            padding: 28px;
+            color: #fff;
+            background: linear-gradient(135deg, var(--c), var(--ink) 140%);
+            clip-path: polygon(0 0, 100% 0, 100% 100%, 3% 100%, 0 88%)
+        }
+
+        .verdict b {
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            font: 400 14px Impact, sans-serif;
+            color: var(--gold)
+        }
+
+        .verdict p {
+            margin: 8px 0 0
+        }
+
+        .obits {
+            display: grid;
+            gap: 28px;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            margin-top: 24px
+        }
+
+        .flip {
+            perspective: 1400px;
+            height: 540px;
+            cursor: pointer;
+            outline-offset: 6px
+        }
+
+        .inner {
+            position: relative;
+            height: 100%;
+            transition: transform .9s cubic-bezier(.2, .8, .2, 1);
+            transform-style: preserve-3d
+        }
+
+        .flip.on .inner {
+            transform: rotateY(180deg)
+        }
+
+        .f,
+        .b {
+            border-radius: 35px;
+            position: absolute;
+            inset: 0;
+            padding: 24px;
+            backface-visibility: hidden;
+            -webkit-backface-visibility: hidden;
+            overflow: auto
+        }
+
+        .f {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            color: #fff;
+            background: linear-gradient(160deg, var(--c), var(--ink) 115%)
+        }
+
+        .f .ph {
+            flex: 1;
+            color: #fff;
+            border-color: rgba(255, 255, 255, .6)
+        }
+
+        .f h3 {
+            font-size: 30px;
+            margin: 6px 0;
+            display: block
+        }
+
+        .b {
+            transform: rotateY(180deg);
+            background: var(--surface);
+            border: 3px solid var(--c);
+            font-size: 15.5px
+        }
+
+        .b h3 {
+            margin-top: 0;
+            color: var(--c);
+            display: block
+        }
+
+        footer {
+            margin-top: 70px;
+            background: var(--ink);
+            color: #a69b88;
+            padding: 28px 20px;
+            border-top: 6px solid var(--lenin)
+        }
+
+        footer div {
+            max-width: 960px;
+            margin: auto
+        }
+
+        footer b {
+            color: var(--gold);
+            font: 400 15px Impact, sans-serif;
+            letter-spacing: .1em;
+            text-transform: uppercase
+        }
+
+        footer p {
+            margin: 6px 0;
+            font: 14px system-ui, sans-serif
+        }
+
+        .back-top {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 10px 16px;
+            color: var(--gold);
+            border: 1px solid var(--gold);
+            text-decoration: none;
+            font: 14px Impact, sans-serif;
+            text-transform: uppercase;
+            transition: background .3s, color .3s, transform .3s;
+        }
+
+        .back-top:hover {
+            background: var(--gold);
+            color: var(--ink);
+            transform: translateY(-3px);
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            * {
+                animation: none !important;
+                transition: none !important;
+            }
+
+            [data-a] {
+                opacity: 1;
+                transform: none;
+            }
+        }
+    </style>
+</head>
+
+<body id="top">
+    <nav>
+        <div>
+            <a href="#lenin">Lenin</a>
+            <a href="#stalin">Stalin</a>
+            <a href="#conclusion">Conclusion</a>
+        </div>
+        <div id="bar"></div>
+    </nav>
+    <header class="hero">
+        <div>
+            <div class="txt">
+                <h1>The Russian <span>Revolution</span>: Lenin &amp; Stalin</h1>
+                <div class="tag">Presented by</div>
+                <div class="names" id="names"></div>
+                <div class="btns"><a class="btn l" href="#lenin">Was Lenin great?</a><a class="btn s" href="#stalin">Was
+                        Stalin
+                        a disaster?</a></div>
+            </div>
+            <div class="stage">
+                <div class="star" id="star"></div>
+            </div>
+        </div>
+    </header>
+    <main>
+
+        <div id="parts"></div>
+        <section id="conclusion">
+            <h2 class="plain" data-a="left">Conclusion: Two Obituaries</h2>
+            <div class="obits" id="obits"></div>
+        </section>
+    </main>
+    <footer>
+        <div>
+            <b>Project team</b>
+            <p id="fnames"></p>
+            <a href="#top" class="back-top">↑ Back to top</a>
+        </div>
+    </footer>
+    <script>
+        /* ===== EDITAR CONTENIDO: CADA ELEMENTO TIENE SU PROPIO LUGAR ===== */
+
+        // 1) Integrantes del proyecto.
+        const MEMBERS = ["Helena Losano", "Ramiro Nogaro", "Benjamin Xanthopoulos", "Sophie von Mulhen", "Belisario Gerlero"];
+
+        // 2) Contenido de cada persona y de cada sección.
+        // Para editar una imagen, cambiá SOLO el campo image del elemento correspondiente.
+        // Para editar un texto, cambiá SOLO el campo indicado.
+        const PARTS = [
+            {
+                id: "lenin",
+                tag: "Part A",
+                L: "A",
+                title: "Was Lenin a Great Leader?",
+                sections: [
+                    {
+                        title: "Causes of Lenin",
+                        image: "img/lenincause.jpg", // Imagen de esta sección de Lenin.
+                        sources: [
+                            {
+                                cite: "", // Título, autor y fecha de la fuente 1.
+                                image: "", // Imagen propia de la fuente 1.
+                                text: "Lenin is a gifted man who had all the qualities of a leader, including these essential ones: lack of morality and a merciless, lordy harshness towards the lives of the masses... As long as they can I will repeat to the Russian proletariat, you are being led to distraction, you are being used as material in an in human experiment; to you leaders you are not human",
+                                analyses: [
+                                    " In my opinion, Lenin was too focused on achieving his political goals and forgot about the people who were suffering. I think he believed that the revolution was more important than individual lives, which made him a dangerous leader. ",
+                                    "Lenin was not a good leader because he was cruel and did not care about people's lives. He used ordinary people to achieve his goals and treated them like objects instead of human beings. A good leader should care about people and protect them, but Lenin did not do that.",
+                                    "In my opinion, Lenin was a bad leader because he didn't care about the people of Russia. He was very cruel and thought that workers were only useful for his plans. A good leader should listen to people, respect them and care about their lives.",
+                                    "In my opinion, Lenin was too ambitious and became too focused on achieving his political goals, which affected ordinary people. I believe he was capable of leading the country towards what he wanted, but the well-being of people wasn’t part of his priorities.",
+                                    "In my opinion, Lenin was not a great leader because he treated his people badly and did not care about their lives. For me, a great leader is someone who takes care of society and is also peaceful."
+                                ]
+                            },
+                            {
+                                cite: "", // Título, autor y fecha de la fuente 2.
+                                image: "", // Imagen propia de la fuente 2.
+                                text: "It must be an indelible stain on Lenin's record that for all his humane instincts he allowed his cult... of terror to develop... he allowed mass terror not only to be practised, but to become legitimate and respectable.",
+                                analyses: [
+                                    "I think Lenin created a government where violence was accepted as a way to control the country. This was a serious problem because people could lose their freedom and rights. In my opinion, this damaged the future of Russia.",
+                                    "In my opinion, based on this source, Lenin was not a good leader because he allowed terror and violence during his government. Even if he had good intentions, many people suffered because of his actions. A good leader should protect people.",
+                                    " In my opinion, Lenin made a big mistake because he allowed terror to become normal. I think this shows that even if he wanted to help people, his actions also caused a lot of suffering. ",
+                                    "In my opinion, Lenin wasn't as humane as he might have seemed. He knew about the terror taking place under his government and still allowed it to continue. I think his leadership was hypocritical, considering that he talked about humane qualities.",
+                                    "In my opinion, Lenin was not a great leader because he used fear to control people instead of earning their respect. I think a good leader should solve problems peacefully and listen to the people, not make them afraid of their own government."
+                                ]
+                            },
+                            {
+                                cite: "", // Título, autor y fecha de la fuente 3.
+                                image: "", // Imagen propia de la fuente 3.
+                                text: "First and foremost Lenin symbolises the Russian Revolution as a movement of the poor and oppressed... against the great and the powerful... Lenin possessed a second quality, humaneness. Thirdly, Lenin stands for... purposefulness, realism, common sense, will-power...",
+                                analyses: [
+                                    "I believe Lenin became an important symbol because he represented a new opportunity for poor people. He wanted to change the old system and give workers more importance. However, having good goals does not mean that all his decisions were right.",
+                                    " In my opinion, based on this source, Lenin had some good qualities as a leader. He helped poor people and wanted to make things better for them. He was also a strong and determined person. The source says he had to work in very difficult conditions with few resources. This shows that Lenin had some positive things as a leader, even though he made mistakes.",
+                                    "I think Lenin really wanted to help poor people and change Russia. He had strong ideas and tried to make things better, but it wasn't easy because there were many problems. ",
+                                    "In my opinion, Lenin was a revolutionary who wanted to change the existing system and give workers new opportunities. Governing under difficult conditions wasn't easy, and I think those challenges help explain some of the mistakes he made during his leadership.",
+                                    "In my opinion, Lenin had some good things like he wanted to help the poor people to fight against the powerful people, but he also had his mistakes. This changes were difficult because Russia was very bad. "
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                obituary: {
+                    image: "img/leninj.jpg", // Retrato que aparece en el frente del obituary de Lenin.
+                    text: "Vladimir Lenin was born in 1870 in Russia. He became the leader of the Bolshevik Party and played a very important role in the Russian Revolution of 1917. He led the Bolsheviks to take power from the Provisional Government and later created the Soviet Union. He introduced communist ideas and wanted to give more power to workers and peasants. However, his government also used violence and terror against its enemies. After suffering several strokes, Lenin died in 1924."   // Texto que aparece al dar vuelta el obituary de Lenin.
+                },
+                verdict: "" // Conclusión de Lenin.
+            },
+            {
+                id: "stalin",
+                tag: "Part B",
+                L: "B",
+                title: "Was Stalin a Disaster for the Soviet Union?",
+                sections: [
+                    {
+                        title: "Causes of Stalin",
+                        image: "img/stalincauses.jpg", // Imagen de esta sección de Stalin.
+                        sources: [
+                            {
+                                cite: "", // Título, autor y fecha de la fuente 1.
+                                image: "", // Imagen propia de la fuente 1.
+                                text: "A Moscow girl who went out partying rang the doorbell when she came back in the early hours. Her father answered fully dressed, bag in hand, and slapped her face when he saw who it was. [He thought it was the secret police. At four o’clock in the morning there was a knock on the door of a Moscow house which was occupied by five families. All of them leapt out of bed, but none dared to open the door… The knocking grew louder. Finally, one of the tenants took his courage in both hands and opened the door. He was heard whispering for a few moments… Then he came back to his terrified fellow tenants with a bright smile on his face. ‘Nothing to worry about, comrades, the house is on fire, that’s all.’",
+                                analyses: [
+                                    "I think Stalin's government made people feel like they had no freedom. Even inside their own homes, they couldn't relax because they were afraid of being watched or arrested. In my opinion, nobody should have to live like that.",
+                                    "In my opinion, based on this source, Stalin was a disaster for the Soviet Union because people were very afraid of the secret police. They were so scared that even someone  knocking on the door made them think they were going to be arrested. This shows that people couldn't live peacefully because they were always afraid.",
+                                    " I think people were really scared during this time. They were so afraid of the secret police that even a normal knock on the door made them think something bad was going to happen. It shows how people lived with fear every day. ",
+                                    "In my opinion, Stalin's government created an environment where fear became part of people's everyday life. I think it is disturbing that families were afraid of their own government simply because they didn't know what might happen to them.",
+                                    "I think that people were very scared of the police. They were so affraied that a fire looked normal and slower than being arrested by the secret police. That swoed that people were affraied all the time of the secret police "
+                                ]
+                            },
+                            {
+                                cite: "", // Título, autor y fecha de la fuente 2.
+                                image: "", // Imagen propia de la fuente 2.
+                                text: "It became vastly more difficult to socialise because nobody knew who was informing them… in the morning when you left your flat, you saw that a flat had been sealed and that those people were no longer there. Of course, your state of mind was utter terror, because nobody knew whether they would be arrested… People turned in on themselves. My son had woken up, and I said, ‘Little son, get up and go to your granny – I’m going away for a while.’... Then I went to the little girl – she was four years old, he was six. She was sleeping with her nose in the pillow. I turned round and she started smiling. What could I do? I kissed her and left.",
+                                analyses: [
+                                    "In my opinion, Stalin destroyed people's personal lives because his government made everyone suspicious of each other. People had to think carefully about what they said and who they trusted. This also affected children and families.",
+                                    "Also, in this source, we can see that Stalin was a disaster for the Soviet Union because people lived in constant fear. They couldn't trust anyone and were afraid of being arrested. Families were also separated, which made life very difficult for everyone. ",
+                                    "For me, this shows how terrible life was because people couldn't even trust their neighbours or feel safe in their own homes. It must have been really hard to leave your family without knowing if you would ever come back. ",
+                                    "I think that when the country was under Stalin’s regime, society got severely damaged by creating an environment where people couldn't trust each other. I think it was especially cruel that fear affected family relationships and forced people to be separated from their loved ones, especially children being separated from their parents.",
+                                    " In my opinion, this is terrible because people could not trust their own neighbors. When they looked outside, they saw that the apartments next to them were sealed and that nobody lived there anymore. This made people live in constant fear."
+                                ]
+                            },
+                            {
+                                cite: "", // Título, autor y fecha de la fuente 3.
+                                image: "", // Imagen propia de la fuente 3.
+                                text: "Trotsky and his contemptible friends… organised in the USSR gangs of murderers, wreckers and spies. They caused train collisions in the USSR, blew up and set fire to mines and factories, wrecked machines and poisoned workers, and did all the damage they possibly could. These enemies of the people had a definite programme, which was to restore the yoke of the capitalists and landlords to the USSR, to destroy the collective farms… and to promote the defeat of the USSR in the event of war.",
+                                analyses: [
+                                    "I think Stalin used accusations against Trotsky and his supporters to make them look like enemies of the country. This could help Stalin get rid of political opponents and keep his power. In my opinion, he used propaganda to justify his actions.",
+                                    " In my opinion, based on this source, Stalin was a disaster for the Soviet Union because his government accused people who disagreed with him of being enemies. This created fear and made it dangerous to have a different opinion. It also shows how much control Stalin had over the country.",
+                                    "In my opinion, this text shows how Stalin tried to make Trotsky look like a bad person by accusing him of destroying factories, hurting workers and working against the USSR. ",
+                                    "In this source it is shown that Stalin used accusations as a political weapon and turned people against his political opponents. I think this was a way of manipulating public opinion, especially because the source only presents his side of the story.",
+                                    "In my opinion, this is terrible because Trotsky and his followers were accused of destroying factories, trains and machines, and hurting workers. I think these accusations were very serious, but we cannot know if they were true just by reading this source."
+                                ]
+                            }
+                        ]
+                    }
+                ],
+                obituary: {
+                    image: "img/stalin.jpg", // Retrato que aparece en el frente del obituary de Stalin.
+                    text: "Joseph Stalin was born in 1878 in Georgia. After Lenin's death, he slowly gained power and became the leader of the Soviet Union. He introduced Five-Year Plans to develop industry and forced farmers to join collective farms. Under his rule, the USSR became a major industrial and military power. However, Stalin also used terror, secret police and mass arrests to control the population. Many people were sent to labour camps or executed during the purges. He ruled the Soviet Union until his death in 1953."   // Texto que aparece al dar vuelta el obituary de Stalin.
+                },
+                verdict: "" // Conclusión de Stalin.
+            }
+        ];
+
+        // 3) Datos generales de los obituaries (nombres y fechas).
+        const OBITUARY_NAMES = {
+            lenin: ["Vladimir Ilyich Lenin", "1870–1924"],
+            stalin: ["Joseph Vissarionovich Stalin", "1878–1953"]
+        };
+
+        /* ===== FIN DE LA ZONA DE EDICIÓN ===== */
+
+        // Muestra una imagen si se completó su URL. Si no, deja un espacio de imagen.
+        const ph = (image, hint, height) => image
+            ? `<figure><img src="${image}" alt="${hint}"></figure>`
+            : `<div class="ph"${height ? ` style="min-height:${height}px"` : ""}><div><b>Image here</b>${hint}</div></div>`;
+
+        document.getElementById("names").innerHTML = MEMBERS.map((m, i) =>
+            `<span class="chip" style="animation-delay:${.5 + i * .12}s">${m}</span>`
+        ).join("");
+        document.getElementById("fnames").textContent = MEMBERS.join(" · ");
+
+        const sd = document.getElementById("star");
+        for (let i = 0; i < 14; i++) {
+            const layer = document.createElement("i");
+            layer.style.transform = `translateZ(${(i - 7) * 5}px)`;
+            layer.style.background = i === 13 ? "#e0a82e" : i === 0 ? "#8e0d16" : `hsl(355 80% ${32 + i * 1.6}%)`;
+            sd.appendChild(layer);
+        }
+
+        // Cada fuente toma su imagen, texto, cita y análisis de su propio objeto.
+        const renderSource = (source, personId, sectionIndex, sourceIndex) => {
+            const analyses = source.analyses || [];
+            return `
+                <div class="src tilt" data-a="up">
+                    <p class="cite">Source ${sourceIndex + 1}: ${source.cite || ""}</p>
+                    <p class="${source.text ? "" : "ghost"}">${source.text || "Write the text for this source here."}</p>
+                    <div class="tabs">
+                        ${MEMBERS.map((member, index) =>
+                `<button class="${index === 0 ? "on" : ""}" data-k="${index}">${member.split(" ")[0]}</button>`
+            ).join("")}
+                    </div>
+                    <div class="pan">
+                        <em>${MEMBERS[0]}</em>
+                        ${analyses[0] || "<span class='ghost'>[Write this person's analysis here.]</span>"}
+                    </div>
+                </div>`;
+        };
+
+        document.getElementById("parts").innerHTML = PARTS.map(person =>
+            `<section id="${person.id}" data-p="${person.id}">
+                <div class="band" data-a="left">
+                    <h2>${person.title}</h2>
+                </div>
+                ${person.sections.map((section, sectionIndex) =>
+                `<h3 data-a="right"><i>${sectionIndex + 1}</i>${section.title}</h3>
+                    ${ph(section.image, `image for ${section.title}`)}
+                    ${(section.sources || []).map((source, sourceIndex) =>
+                    renderSource(source, person.id, sectionIndex, sourceIndex)
+                ).join("")}`
+            ).join("")}
+            </section>`
+        ).join("");
+
+        document.getElementById("obits").innerHTML = PARTS.map((person, index) => {
+            const name = OBITUARY_NAMES[person.id];
+
+            return `
+        <div class="flip" data-p="${person.id}" data-a="${index ? "right" : "left"}"
+            style="--d:${index * 0.25}s"
+            tabindex="0"
+            role="button"
+            aria-label="Flip ${name[0]} obituary">
+
+            <div class="inner">
+                <div class="f">
+                    <div class="tag" style="color:var(--gold)">Obituary · ${name[1]}</div>
+                    ${ph(person.obituary.image, `portrait of ${name[0]}`)}
+                    <h3>${name[0]}</h3>
+                    <span class="sans">Click to read</span>
+                </div>
+
+                <div class="b">
+                    <h3>${name[0]}</h3>
+                    <p>${person.obituary.text || "Write this obituary here."}</p>
+                </div>
+            </div>
+        </div>`;
+        }).join("");
+
+        document.addEventListener("click", e => {
+            const b = e.target.closest(".tabs button");
+            if (b) {
+                const sourceCard = b.closest(".src");
+                const allButtons = [...sourceCard.querySelectorAll(".tabs button")];
+                const selectedIndex = allButtons.indexOf(b);
+                const cardIndex = [...document.querySelectorAll(".src")].indexOf(sourceCard);
+                const allSources = PARTS.flatMap(person => person.sections.flatMap(section => section.sources || []));
+                const analysis = allSources[cardIndex]?.analyses?.[selectedIndex] || "<span class='ghost'>[Write this person's analysis here.]</span>";
+                allButtons.forEach(button => button.classList.remove("on"));
+                b.classList.add("on");
+                const panel = sourceCard.querySelector(".pan");
+                panel.style.animation = "none";
+                panel.offsetWidth;
+                panel.style.animation = "";
+                panel.innerHTML = `<em>${MEMBERS[selectedIndex]}</em>${analysis}`;
+                return;
+            }
+            const f = e.target.closest(".flip");
+
+            if (f) {
+                f.classList.toggle("on");
+            }
+        });
+        document.addEventListener("keydown", e => { if ((e.key === "Enter" || e.key === " ") && e.target.classList.contains("flip")) { e.preventDefault(); e.target.classList.toggle("on") } });
+        if (!matchMedia("(prefers-reduced-motion:reduce)").matches) {
+            document.querySelectorAll(".tilt").forEach(c => {
+                c.addEventListener("mousemove", e => { const r = c.getBoundingClientRect(), x = (e.clientX - r.left) / r.width - .5, y = (e.clientY - r.top) / r.height - .5; c.style.transform = `perspective(900px) rotateY(${x * 5}deg) rotateX(${-y * 5}deg) translateZ(6px)` });
+                c.addEventListener("mouseleave", () => c.style.transform = "")
+            });
+        }
+        const io = new IntersectionObserver(entries => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("in");
+
+                    setTimeout(() => {
+                        entry.target.classList.add("done");
+                    }, 1300);
+
+                    io.unobserve(entry.target);
+                }
+            });
+        }, {
+            threshold: 0.1
+        });
+
+        document.querySelectorAll("[data-a]").forEach(element => {
+            io.observe(element);
+        });
+        const links = [...document.querySelectorAll("nav a")];
+
+        addEventListener("scroll", () => {
+            const h = document.documentElement;
+            const bar = document.getElementById("bar");
+
+            if (bar && h.scrollHeight > h.clientHeight) {
+                bar.style.width =
+                    h.scrollTop / (h.scrollHeight - h.clientHeight) * 100 + "%";
+            }
+
+            let cur = links[0];
+
+            links.forEach(a => {
+                const t = document.querySelector(a.getAttribute("href"));
+                if (t && t.getBoundingClientRect().top < 140) cur = a;
+            });
+
+            links.forEach(a => a.classList.toggle("on", a === cur));
+        }, { passive: true });
+        document.addEventListener("click", function (event) {
+            const link = event.target.closest('a[href^="#"]');
+
+            if (!link) return;
+
+            const id = link.getAttribute("href");
+            const target = document.querySelector(id);
+
+            if (!target) return;
+
+            event.preventDefault();
+
+            const position = target.getBoundingClientRect().top + window.scrollY - 75;
+
+            window.scrollTo({
+                top: Math.max(0, position),
+                behavior: "smooth"
+            });
+        });
+    </script>
+</body>
+
+</html>
